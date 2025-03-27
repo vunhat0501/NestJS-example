@@ -1,0 +1,26 @@
+services:
+  dev-db:
+    image: postgres:13
+    container_name: dev-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: nestjs-api-tutorial
+    ports:
+      - "5434:5432"
+    networks:
+      - nestjs-api-tutorial-network
+
+  test-db:
+    image: postgres:13
+    container_name: test-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: nestjs-api-tutorial
+    ports:
+      - "5435:5432"
+    networks:
+      - nestjs-api-tutorial-network
+networks:
+  nestjs-api-tutorial-network:
