@@ -10,4 +10,3 @@ import { JwtStrategy } from "./strategy";
     providers: [AuthService, JwtStrategy],
 })
 export class AuthModule {}
- 
