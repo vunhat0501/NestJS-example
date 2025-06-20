@@ -21,4 +21,17 @@ export class UserService {
 
     return userWithOutHash;
   }
+
+  async deleteUser(userId: number) {
+    const deletedUser = await this.prisma.user.delete({
+      where: {
+        id: userId,
+      },
+    });
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { hash, ...userWithOutHash } = deletedUser;
+
+    return userWithOutHash;
+  }
 }

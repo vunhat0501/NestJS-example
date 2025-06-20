@@ -245,4 +245,19 @@ describe('App e2e', () => {
       });
     });
   });
+
+  describe('Delete user', () => {
+    describe('Delete user', () => {
+      it('should delete user', () => {
+        return pactum
+          .spec()
+          .delete('/users')
+          .withHeaders({
+            Authorization: 'Bearer $S{userAt}',
+          })
+          .expectStatus(204)
+          .expectBody('');
+      });
+    });
+  });
 });
